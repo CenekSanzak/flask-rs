@@ -4,7 +4,7 @@ use base64::{Engine as _, engine::general_purpose};
 #[derive(Args)]
 pub struct Decode{
     #[arg(short, long)]
-    cookie: String
+    pub cookie: String
 }
 
 fn validate_split_cookie(arg: &str) -> Result<String, String> {
@@ -18,11 +18,13 @@ fn validate_split_cookie(arg: &str) -> Result<String, String> {
     Ok(split[0].to_string())
 }
 
-pub fn decode_cookie(arg: Decode) {
+pub fn decode_cookie(arg: Decode) -> String {
     // Decodes a flask cookie
     let first_part = validate_split_cookie(&arg.cookie).unwrap();
     let decoded = general_purpose::URL_SAFE_NO_PAD.decode(first_part.as_bytes()).unwrap();
-    println!("{}", String::from_utf8(decoded).unwrap());
+    let result = String::from_utf8(decoded).unwrap();
+    println!("{}", result);
+    return result;
 }
 
 #[cfg(test)]
