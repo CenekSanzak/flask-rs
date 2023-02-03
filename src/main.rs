@@ -1,7 +1,7 @@
 use clap::{Parser, Subcommand};
 use flask_rs::unsign::{Unsign, unsign_cookie};
 use flask_rs::sign::{Sign, sign_cookie};
-use flask_rs::decode::{Decode, decode_cookie};
+use flask_rs::decode::{Decode, decode_and_print_cookie};
 
 
 #[derive(Parser)]
@@ -26,10 +26,10 @@ fn main() {
             unsign_cookie(unsign);
         },
         Commands::Sign(sign) => {
-            sign_cookie(sign)
+            sign_cookie(sign);
         },
         Commands::Decode(decode) => {
-            decode_cookie(decode);
+            decode_and_print_cookie(decode);
         }
     }
 }
