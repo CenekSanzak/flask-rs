@@ -56,7 +56,6 @@ pub fn decode_and_print_cookie(arg: Decode) {
     }
     let (decoded, timestamp) = result.unwrap();
     println!("Decoded: {}", decoded);
-    println!("Timestamp: {}", timestamp);
 }
 
 #[cfg(test)]

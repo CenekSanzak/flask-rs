@@ -18,16 +18,16 @@ flask-unsign-rust --help
 
 ### Decode
 
+Decode a Flask session cookie.
+
 ```bash
-flask-unsign-rust decode --cookie "eyJhZG1pbiI6ZmFsc2UsInVpZCI6ImNlbmVrc2FuemFrIn0.Y8LELg.Be7MYQQSD-rm0xm4XGDk6IJ4aWQ"
+flask-rs decode --cookie "eyJsb2dnZWRfaW4iOnRydWV9.Y-6iDg.s4WvxNEtKHvjSIXmG9Zx8YYcci8"
 ```
 
 ### Sign
 
-(This feature is not implemented yet)
-
 ```bash
-flask-unsign-rust sign --payload '{"admin":false,"uid":"ceneksanzak"}' --secret "a"
+target/debug/flask-rs sign --payload='{"logged_in":true}' --secret="CHANGEME"
 ```
 
 ### Unsign
